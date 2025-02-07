@@ -26,40 +26,18 @@ You can install all the dependencies using:
 
 ```bash
 pip install -r requirements.txt
-
+```
 **Set your Azure Blob Storage connection string in an environment variable:**
 
 ```bash
 export AZURE_BLOB_CONNECTION_STRING="your-connection-string-here"
 ```
-
 **Run the Flask app:**
 
 ```bash
 python app.py
 ```
-
 The app will start running on [http://localhost:5000](http://localhost:5000).
-
-### 2. With Docker
-
-To run the application in a Docker container:
-
-**Build the Docker image:**
-
-```bash
-docker build -t azure-book-management .
-```
-
-**Run the Docker container:**
-
-```bash
-docker run -p 5000:5000 -e AZURE_BLOB_CONNECTION_STRING="your-connection-string-here" azure-book-management
-```
-
-The app will be available at [http://localhost:5000](http://localhost:5000) inside the Docker container.
-
----
 
 ## Endpoints
 
@@ -102,16 +80,16 @@ docker build -t azure-book-management .
 After building the image, run the following command to start the container:
 
 ```bash
-docker run -p 5000:5000 -e AZURE_BLOB_CONNECTION_STRING="your-connection-string-here" azure-book-management
+docker run
 ```
 
 This command will start the Flask app inside the Docker container and make it accessible at [http://localhost:5000](http://localhost:5000).
 
 ---
 
-## Environment Variables
+**To manage multiple services**
+Docker Compose, use the provided docker-compose.yaml file.
 
-The application requires the following environment variable:
-
-- **AZURE_BLOB_CONNECTION_STRING**: The connection string for accessing your Azure Blob Storage account.
-
+```bash
+docker-compose up --build
+```
